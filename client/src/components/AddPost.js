@@ -40,6 +40,7 @@ const AddPost = () => {
         />
         <button type="submit"> Submit</button>
       </form>
+      {error && <span>{error.graphQLErrors[0].message}</span>}
     </div>
   );
 };

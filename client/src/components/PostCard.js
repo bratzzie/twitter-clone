@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../app/auth";
+import LikeComponent from "./LikeComponent";
 
 const PostCard = ({
   post: {
@@ -14,9 +16,8 @@ const PostCard = ({
     comments,
   },
 }) => {
-  function likePost() {
-    //TODO:
-  }
+  const { user } = useContext(AuthContext);
+
   function commentonPost() {
     //TODO:
   }
@@ -28,8 +29,11 @@ const PostCard = ({
         <h4>{moment(createdAt).fromNow(true)}</h4>
       </Link>
       <p>{body}</p>
-      <button onClick={likePost}>{likeCount}</button>
-      <button onClick={commentonPost}>{commentCount}</button>
+      <LikeComponent user={user} post={{ id, likes, likeCount }} />
+      <button as={Link} to={`/posts/${id}`}>
+        {commentCount}
+      </button>
+      {user && user.username === username && <button>Delete</button>}
     </div>
   );
 };
