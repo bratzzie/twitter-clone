@@ -48,7 +48,7 @@ const Login = (props) => {
           type="password"
         />
 
-        <button>Login</button>
+        <button type="submit">Login</button>
       </form>
       {Object.keys(errors).length > 0 && (
         <ul>

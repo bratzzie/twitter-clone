@@ -66,7 +66,7 @@ const Register = (props) => {
           onChange={onChange}
           type="password"
         />
-        <button>Register</button>
+        <button type="submit">Register</button>
       </form>
       {Object.keys(errors).length > 0 && (
         <ul>

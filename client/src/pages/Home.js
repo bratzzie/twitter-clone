@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
+
 import PostCard from "../components/PostCard";
+import { AuthContext } from "../app/auth";
+import AddPost from "../components/AddPost";
+import { FETCH_POSTS_QUERY } from "../utils/postQuery";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
+
   const { loading, data: { getPosts: posts } = {} } = useQuery(
     FETCH_POSTS_QUERY
   );
 
   return (
     <div>
+      {user && <AddPost />}
       {loading ? (
         <h1>Loading...</h1>
       ) : (
@@ -25,25 +31,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const FETCH_POSTS_QUERY = gql`
-  {
-    getPosts {
-      id
-      body
-      createdAt
-      username
-      likeCount
-      likes {
-        username
-      }
-      commentCount
-      comments {
-        id
-        username
-        createdAt
-        body
-      }
-    }
-  }
-`;
