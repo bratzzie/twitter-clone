@@ -6,7 +6,7 @@ const { KEY } = require("../../config");
 const {
   validateRegisterInput,
   validateLoginInput,
-} = require("../../utilities/validation");
+} = require("../../utils/validation");
 
 function generateToken(user) {
   return jwt.sign(
