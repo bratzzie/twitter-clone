@@ -3,6 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../app/auth";
 import LikeComponent from "./LikeComponent";
+//import DeleteComponent from "./DeleteComponent";
 
 const PostCard = ({
   post: {
@@ -33,7 +34,7 @@ const PostCard = ({
       <button as={Link} to={`/posts/${id}`}>
         {commentCount}
       </button>
-      {user && user.username === username && <button>Delete</button>}
+      {/* {user && user.username === username && <DeleteComponent postId={id} />} */}
     </div>
   );
 };

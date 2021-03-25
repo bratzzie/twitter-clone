@@ -14,6 +14,7 @@ import {
   Notifications,
   Profile,
 } from "./pages/";
+//import SinglePost from "./pages/SinglePost";
 import AuthRoute from "./utils/AuthRoute";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/more" component={More} />
         <Route exact path="/notifications" component={Notifications} />
         <Route exact path="/profile" component={Profile} />
+        {/* <Route exact path="/posts/:postId" component={SinglePost} /> */}
       </Router>
     </AuthProvider>
   );
