@@ -3,6 +3,9 @@ import gql from "graphql-tag";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+//styles
+import { Button } from "antd";
+import { HeartOutlined } from "@ant-design/icons";
 const LikeComponent = ({ user, post: { id, likeCount, likes } }) => {
   const [liked, setLiked] = useState(false);
 
@@ -17,19 +20,39 @@ const LikeComponent = ({ user, post: { id, likeCount, likes } }) => {
   });
   const likeButton = user ? (
     liked ? (
-      <button onClick={likePost}></button> //TODO: color liked
+      <Button
+        type="link"
+        as="button"
+        onClick={likePost}
+        shape="circle"
+        icon={<HeartOutlined style={{ color: "gray" }} />}
+      />
     ) : (
-      <button onClick={likePost}></button> //TODO: not liked
+      //TODO: color liked
+      <Button
+        type="link"
+        as="button"
+        onClick={likePost}
+        shape="circle"
+        icon={<HeartOutlined style={{ color: "gray" }} />}
+      /> //TODO: not liked
     )
   ) : (
-    <button as={Link} to="/login"></button> //TODO: not liked, not authorised
+    <Button
+      type="link"
+      as={Link}
+      to="/login"
+      onClick={likePost}
+      shape="circle"
+      icon={<HeartOutlined style={{ color: "gray" }} />}
+    /> //TODO: not liked, not authorised
   );
 
   return (
-    <>
+    <div>
       {likeButton}
       {likeCount}
-    </>
+    </div>
   );
 };
 

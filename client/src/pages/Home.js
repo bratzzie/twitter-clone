@@ -14,7 +14,39 @@ const Home = () => {
   );
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#fff" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <h1
+          style={{
+            fontWeight: 800,
+            fontSize: 23,
+            paddingLeft: 15,
+            paddingTop: 5,
+            cursor: "pointer",
+          }}
+        >
+          Home
+        </h1>
+        <h1
+          style={{
+            fontWeight: 800,
+            fontSize: 23,
+            paddingRight: 15,
+            paddingTop: 5,
+            cursor: "pointer",
+          }}
+        >
+          ✨
+        </h1>
+      </div>
+
       {user && <AddPost />}
       {loading ? (
         <h1>Loading...</h1>
